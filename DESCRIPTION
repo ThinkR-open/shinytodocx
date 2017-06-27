@@ -1,0 +1,24 @@
+Package: shinytodocx
+Type: Package
+Title: Shiny to docx
+Version: 0.1.0
+Author: Vincent Guyader
+Maintainer: Vincent Guyader <vincent@thinkr.fr>
+Description: Propose une approche permettant de creer un rapport docx a partir d une application Shiny.
+License: file LICENCE
+Encoding: UTF-8
+LazyData: true
+Imports: ggplot2,
+    dygraphs,
+    ReporteRs,
+    rCharts,
+    magrittr,
+    shiny,
+    shinydashboard,
+    plotly,
+    datasets,
+    htmltools,
+    htmlwidgets,
+    webshot,
+    assertthat
+RoxygenNote: 6.0.1
