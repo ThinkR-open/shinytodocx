@@ -49,6 +49,6 @@ rcharts_to_png <- function(objet, filename = "rchart.png", ...) {
   message("... rcharts to png")
   html_out <- basename(tempfile('rcharts', '.', '.html'))
   on.exit(unlink(html_out), add = TRUE)
-  p$save(destfile = html_out,standalone=TRUE)
+  objet$save(destfile = html_out,standalone=TRUE)
   webshot::webshot(html_out, filename)
 }

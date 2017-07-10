@@ -1,5 +1,5 @@
 
-require(demoshinyrapport)
+require(shinytodocx)
 require(shinydashboard)
 require(shiny)
 
