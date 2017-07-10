@@ -45,6 +45,7 @@ dygraph_to_png <- function(objet, filename = "dygraph.png", ...) {
 #' @import webshot
 #' @export
 #'
+
 rcharts_to_png <- function(objet, filename = "rchart.png", ...) {
   message("... rcharts to png")
   html_out <- basename(tempfile('rcharts', '.', '.html'))
