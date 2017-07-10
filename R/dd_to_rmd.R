@@ -103,10 +103,23 @@ add_rcharts <- function(chemin_rapport,graph){
   # inherits(e,graph)
 
   chemin_rapport %>%
-  add_to_rmd(text="```{r, echo=TRUE,result='asis'}") %>%
-  add_to_rmd(text='library(rCharts)') %>%
+  add_to_rmd(text="```{r, echo=TRUE,eval=TRUE,results='asis'}") %>%
+  # add_to_rmd(text='library(rCharts)') %>%
   add_to_rmd(text=paste0(graph,"$print()")) %>%
+
+
   add_to_rmd(text="```")
+  chemin_rapport %>%
+  add_to_rmd(text="```{r, echo=TRUE,eval=TRUE,results='asis'}") %>%
+  # add_to_rmd(text='library(rCharts)') %>%
+    add_to_rmd(text='speedometer(34)$print()') %>%
+
+
+  add_to_rmd(text="```")
+
+
+
+
 
 invisible(chemin_rapport)
 }

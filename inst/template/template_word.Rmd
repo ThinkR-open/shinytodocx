@@ -4,7 +4,6 @@ author: "Vincent Guyader"
 date: '`r Sys.Date()`'
 output:
   word_document: default
-  html_notebook: default
   # pdf_document:
   #   number_sections: yes
   #   toc: yes
@@ -18,8 +17,9 @@ params:
 ---
 
 
-# peut etre boucler ici sur tous les js du dossier
-<script src='`r system.file("my_app","www","js","highchart.js",package = "shinytodocx")`'></script>
+<!-- peut etre boucler ici sur tous les js du dossier -->
+
+<script src='`r system.file("my_app","www","js","highXXXXchart.js",package = "shinytodocx")`'></script>
 <script src='`r system.file("my_app","www","js","highcharts-more.js",package = "shinytodocx")`'></script>
 <script src='`r system.file("my_app","www","js","motion.js",package = "shinytodocx")`'></script>
 
