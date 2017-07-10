@@ -117,7 +117,6 @@ save_to_png <- function(laliste,dossier){
 
   for (j in seq_along(laliste)) {
     print(names(laliste)[j])
-    try(rm(temps_graph),silent=TRUE)
     eval(parse(text = paste0("temps_graph <- ",laliste[[j]])))
     if ( inherits(temps_graph,"ggplot")){
       ggsave(

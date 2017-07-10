@@ -73,7 +73,8 @@ require(rCharts)
       "ici on active le rapport",
       uiOutput("liste_graph"),
       actionButton("genere_rapport", label = "go rapport go!"),
-      actionButton("temp","OPEN TEMP DIR")
+      actionButton("temp","OPEN TEMP DIR"),
+      downloadButton("telecharger_rapport", "docx")
        )
   ))
 
@@ -127,6 +128,18 @@ require(rCharts)
 
     })
 
+
+    output$telecharger_rapport <- downloadHandler(
+      filename = function() {
+        tmpdir <- tempdir()
+        paste0(gsub("\\.+","_",make.names(paste0("rapport_",Ref_site))),".docx")
+      },
+      content = function(file) {
+        message("on va DL le rapport")
+        file.copy(file.path(tempdir(),"rapport.docx"),file)
+
+      }
+    )
 
   }
 
