@@ -5,10 +5,11 @@ output:
   html_notebook: default
   pdf_document: default
 ---
+<script src='`r system.file("my_app","www","js","highchart.js",package = "shinytodocx")`'></script>
+<script src='`r system.file("my_app","www","js","highcharts-more.js",package = "shinytodocx")`'></script>
+<script src='`r system.file("my_app","www","js","motion.js",package = "shinytodocx")`'></script>
+<script src='`r system.file("my_app","www","js","polychart2.standalone.js",package = "shinytodocx")`'></script>
 
-<script src="C:/Users/vincent/Documents/ThinkR/Mission/EDF - defense/reporting dans shny/shinytodocx/inst/my_app/www/js/highchart.js"></script>
-<script src="C:/Users/vincent/Documents/ThinkR/Mission/EDF - defense/reporting dans shny/shinytodocx/inst/my_app/www/js/highcharts-more.js"></script>
-<script src="C:/Users/vincent/Documents/ThinkR/Mission/EDF - defense/reporting dans shny/shinytodocx/inst/my_app/www/js/motion.js"></script>
 
 ```{r setup}
 library(knitr)
