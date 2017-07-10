@@ -132,7 +132,7 @@ require(rCharts)
     output$telecharger_rapport <- downloadHandler(
       filename = function() {
         tmpdir <- tempdir()
-        paste0(gsub("\\.+","_",make.names(paste0("rapport_",Ref_site))),".docx")
+        paste0(gsub("\\.+","_",make.names(paste0("rapport"))),".docx")
       },
       content = function(file) {
         message("on va DL le rapport")
