@@ -20,5 +20,6 @@ Imports: ggplot2,
     htmltools,
     htmlwidgets,
     webshot,
-    assertthat
+    assertthat,
+    rmarkdown
 RoxygenNote: 6.0.1

@@ -2,6 +2,7 @@ devtools::use_data_raw()
 devtools::use_package("magrittr")
 devtools::use_package("ReporteRs")
 devtools::use_package("datasets")
+devtools::use_package("rmarkdown")
 
 
 devtools::use_package("shiny")

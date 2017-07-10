@@ -20,7 +20,7 @@ save_to_rmd <- function(laliste_rapport,dossier,filename) {
   chemin_rapport <- file.path(dossier,"rapport.Rmd")
   file.copy( tempReport,chemin_rapport, overwrite = TRUE)
 
-  for (j in seq_along(laliste_rapport)) {
+    for (j in seq_along(laliste_rapport)) {
     chemin_rapport %>%
       add_h(names(laliste_rapport)[j],3) %>%
       add_graph(laliste_rapport[[j]])

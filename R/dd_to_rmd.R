@@ -47,9 +47,35 @@ add_br <- function(chemin_rapport){
   add_to_rmd(text="\n",chemin_rapport = chemin_rapport)
   invisible(chemin_rapport)
 }
-
-
 add_graph <- function(chemin_rapport,graph){
+
+  # inherits(e,graph)
+  if (eval(parse(text=paste("inherits(",graph,",'rCharts')")))){
+
+    chemin_rapport %>%
+      add_rcharts()
+
+
+  }else{
+  chemin_rapport %>%
+    add_graph_normal()}
+
+
+
+
+  invisible(chemin_rapport)
+}
+
+#' Title
+#'
+#' @param chemin_rapport
+#' @param graph
+#'
+#' @return
+#' @export
+#'
+#' @examples
+add_graph_normal <- function(chemin_rapport,graph){
 
 
   # inherits(e,graph)
@@ -57,6 +83,28 @@ add_graph <- function(chemin_rapport,graph){
   chemin_rapport %>%
   add_to_rmd(text="```{r, echo=FALSE}") %>%
   add_to_rmd(text=graph) %>%
+  add_to_rmd(text="```")
+
+invisible(chemin_rapport)
+}
+
+#' Title
+#'
+#' @param chemin_rapport
+#' @param graph
+#'
+#' @return
+#' @export
+#'
+#' @examples
+add_rcharts <- function(chemin_rapport,graph){
+
+
+  # inherits(e,graph)
+
+  chemin_rapport %>%
+  add_to_rmd(text="```{r, echo=FALSE,result='asis'}") %>%
+  add_to_rmd(text=paste0(graph,"$print()")) %>%
   add_to_rmd(text="```")
 
 invisible(chemin_rapport)
