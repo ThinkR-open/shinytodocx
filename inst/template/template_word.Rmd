@@ -1,0 +1,41 @@
+---
+title: '`r params$titre`'
+author: "Vincent Guyader"
+date: '`r Sys.Date()`'
+output:
+  word_document: default
+  html_notebook: default
+  # pdf_document:
+  #   number_sections: yes
+  #   toc: yes
+  #   toc_depth: 6
+  html_document:
+    code_folding: hide
+    toc: yes
+    toc_float: yes
+params:
+  titre: Rapport
+---
+
+```{r, include=FALSE}
+library(ggplot2)
+```
+
+
+
+# Premiere partie
+
+
+*********
+**Informations :** 
+
+* A list of guidelines prior to the interpretation of the report to warn the user of the precautions to be taken. This tool has been designed to perform a rough targeting of the demand response mechanisms based on the analysis of the clients consumption profile and on ratios specific to its sector of activity. The profits calculated are not to be considered as a guarantee of the benefits that can be made when actually implementing the concerned demand response service. The profits will have to be reassessed once a thorough inspection of the client’s equipment, constraints and cabling scheme has been performed).
+
+* There are 3 types of demand response capacities : absolute capacity (calculated considering the processes we can cut and theoretical time windows),potential capacity (considering the cut durations and potential windows according to the clients consumption profile) and finally the achievable capacity (considering the cabling scheme and the technological constraints of the equipment installed on site).
+
+*********
+
+#deuxieme partie
+
+
+

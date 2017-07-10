@@ -1,0 +1,53 @@
+---
+title: "R Notebook"
+output:
+  html_document: default
+  html_notebook: default
+  pdf_document: default
+---
+
+<script src="C:/Users/vincent/Documents/ThinkR/Mission/EDF - defense/reporting dans shny/shinytodocx/inst/my_app/www/js/highchart.js"></script>
+<script src="C:/Users/vincent/Documents/ThinkR/Mission/EDF - defense/reporting dans shny/shinytodocx/inst/my_app/www/js/highcharts-more.js"></script>
+<script src="C:/Users/vincent/Documents/ThinkR/Mission/EDF - defense/reporting dans shny/shinytodocx/inst/my_app/www/js/motion.js"></script>
+
+```{r setup}
+library(knitr)
+opts_chunk$set(comment = NA, 
+               results = "asis",
+               comment = NA, tidy = FALSE)
+```
+
+```{r}
+
+library(rCharts)
+ data(iris,package = "datasets",envir = baseenv())
+  names(iris) = gsub('\\.', '', names(iris))
+  e<-rPlot(SepalLength ~ SepalWidth | Species, data = iris, type = 'point', color = 'Species')
+  # print(class(e))
+  inherits(e,"rCharts")
+  e$show('inline', include_assets = TRUE, cdn = TRUE)
+```
+
+```{r}
+e$show('iframesrc', cdn = TRUE)
+```
+
+
+
+```{r}
+e$print()
+```
+
+
+```{r}
+e$show('inline', include_assets = TRUE, cdn = TRUE)
+```
+
+```{r}
+library(rCharts)
+hair_eye_male <- subset(as.data.frame(HairEyeColor), Sex == "Male")
+n1 <- nPlot(Freq ~ Hair, group = "Eye", data = hair_eye_male, 
+            type = 'multiBarChart')
+n1$show("iframesrc", cdn = TRUE)
+```
+

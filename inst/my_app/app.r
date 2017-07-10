@@ -73,6 +73,7 @@ require(rCharts)
       "ici on active le rapport",
       uiOutput("liste_graph"),
       actionButton("genere_rapport", label = "go rapport go!"),
+      actionButton("genere_rapport_rmd", label = "go rapport go! (Rmd)"),
       actionButton("temp","OPEN TEMP DIR"),
       downloadButton("telecharger_rapport", "docx")
        )
@@ -108,6 +109,17 @@ require(rCharts)
     })
 
 
+    observeEvent(input$genere_rapport_rmd, {
+      message("on clic sur rapport")
+
+      laliste <- get_plot_to_save()
+      # on ne garde que les graph selectionnes
+      laliste <- laliste[laliste %in% input$choix_plot]
+      withProgress(message = 'Chargement...', value = 0, {
+        all_ggplot_to_rmd(laliste = laliste, open = FALSE) %>%
+          list2env(envir = .GlobalEnv)
+      })
+    })
 
     observeEvent(input$genere_rapport, {
       message("on clic sur rapport")
