@@ -68,7 +68,7 @@ all_ggplot_to_rmd <- function(laliste = get_plot_to_save(),
     pimp_dependance() %>%
     graph_a_generer() %>%
     genere_graph_manquant(laliste=laliste) %>%
-    save_to_png(dossier) %>%
+    # save_to_png(dossier) %>% # pas besoin si Rmd
     prepare_pour_rapport()  %>%
     save_to_rmd(dossier,filename)
 

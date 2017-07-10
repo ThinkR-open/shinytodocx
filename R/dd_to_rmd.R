@@ -53,12 +53,12 @@ add_graph <- function(chemin_rapport,graph){
   if (eval(parse(text=paste("inherits(",graph,",'rCharts')")))){
 
     chemin_rapport %>%
-      add_rcharts()
+      add_rcharts(graph = graph)
 
 
   }else{
   chemin_rapport %>%
-    add_graph_normal()}
+    add_graph_normal(graph = graph)}
 
 
 
@@ -81,7 +81,7 @@ add_graph_normal <- function(chemin_rapport,graph){
   # inherits(e,graph)
 
   chemin_rapport %>%
-  add_to_rmd(text="```{r, echo=FALSE}") %>%
+  add_to_rmd(text="```{r, echo=TRUE}") %>%
   add_to_rmd(text=graph) %>%
   add_to_rmd(text="```")
 
@@ -103,7 +103,8 @@ add_rcharts <- function(chemin_rapport,graph){
   # inherits(e,graph)
 
   chemin_rapport %>%
-  add_to_rmd(text="```{r, echo=FALSE,result='asis'}") %>%
+  add_to_rmd(text="```{r, echo=TRUE,result='asis'}") %>%
+  add_to_rmd(text='library(rCharts)') %>%
   add_to_rmd(text=paste0(graph,"$print()")) %>%
   add_to_rmd(text="```")
 
