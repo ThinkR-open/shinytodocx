@@ -3,15 +3,13 @@ title: '`r params$titre`'
 author: "Vincent Guyader"
 date: '`r Sys.Date()`'
 output:
-  word_document: default
-  # pdf_document:
-  #   number_sections: yes
-  #   toc: yes
-  #   toc_depth: 6
   html_document:
     code_folding: hide
     toc: yes
     toc_float: yes
+  pdf_document:
+    toc: yes
+  word_document: default
 params:
   titre: Rapport
 ---
@@ -19,7 +17,7 @@ params:
 
 <!-- peut etre boucler ici sur tous les js du dossier -->
 
-<script src='`r system.file("my_app","www","js","highXXXXchart.js",package = "shinytodocx")`'></script>
+<script src='`r system.file("my_app","www","js","highchart.js",package = "shinytodocx")`'></script>
 <script src='`r system.file("my_app","www","js","highcharts-more.js",package = "shinytodocx")`'></script>
 <script src='`r system.file("my_app","www","js","motion.js",package = "shinytodocx")`'></script>
 
@@ -47,5 +45,8 @@ library(knitr)
 
 #deuxieme partie
 
-
+```{r results='asis',echo=FALSE,eval=FALSE}
+shinytodocx::speedometer(35)->spd
+spd$print()
+```
 
