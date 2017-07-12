@@ -77,7 +77,9 @@ require(rCharts)
       actionButton("genere_rapport_rmd_pdf", label = "rapport pdf (via Rmd)"),
       actionButton("genere_rapport_rmd_docx", label = "rapport word (via Rmd))"),
       actionButton("temp","Ouvrir dossier temporaire"),
-      downloadButton("telecharger_rapport", "docx")
+      downloadButton("telecharger_rapport_docx", "docx"),
+      downloadButton("telecharger_rapport_html", "pdf"),
+      downloadButton("telecharger_rapport_pdf", "html")
        )
   ))
 
@@ -171,14 +173,38 @@ require(rCharts)
     })
 
 
-    output$telecharger_rapport <- downloadHandler(
+    output$telecharger_rapport_docx <- downloadHandler(
       filename = function() {
         tmpdir <- tempdir()
         paste0(gsub("\\.+","_",make.names(paste0("rapport"))),".docx")
       },
       content = function(file) {
-        message("on va DL le rapport")
+        message("on va DL le rapport docx")
         file.copy(file.path(tempdir(),"rapport.docx"),file)
+
+      }
+    )
+
+    output$telecharger_rapport_html <- downloadHandler(
+      filename = function() {
+        tmpdir <- tempdir()
+        paste0(gsub("\\.+","_",make.names(paste0("rapport"))),".html")
+      },
+      content = function(file) {
+        message("on va DL le rapport html")
+        file.copy(file.path(tempdir(),"rapport.html"),file)
+
+      }
+    )
+
+    output$telecharger_rapport_pdf <- downloadHandler(
+      filename = function() {
+        tmpdir <- tempdir()
+        paste0(gsub("\\.+","_",make.names(paste0("rapport"))),".pdf")
+      },
+      content = function(file) {
+        message("on va DL le rapport pdf")
+        file.copy(file.path(tempdir(),"rapport.pdf"),file)
 
       }
     )
