@@ -2,7 +2,7 @@
 % Please edit documentation in R/rapport_rmd.R
 \name{all_ggplot_to_rmd_pdf}
 \alias{all_ggplot_to_rmd_pdf}
-\title{all_ggplot_to_Rmd}
+\title{all_ggplot_to_Rmd_pdf}
 \usage{
 all_ggplot_to_rmd_pdf(laliste = get_plot_to_save(),
   filename = "rapport.pdf", open = TRUE, dossier = tempdir())
@@ -17,5 +17,5 @@ all_ggplot_to_rmd_pdf(laliste = get_plot_to_save(),
 \item{dossier}{chemin du dossier de creation}
 }
 \description{
-recupere tous les ggplot in mémory pour en fare un docx et des png
+recupere tous les ggplot in mémory pour en fare un pdf et des png
 }

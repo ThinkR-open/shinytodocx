@@ -72,10 +72,11 @@ require(rCharts)
       "Rapport",
       "ici on active le rapport",
       uiOutput("liste_graph"),
-      actionButton("genere_rapport", label = "go rapport go!"),
-      actionButton("genere_rapport_rmd_html", label = "go rapport go! (html)"),
-      actionButton("genere_rapport_rmd_pdf", label = "go rapport go! (pdf)"),
-      actionButton("temp","OPEN TEMP DIR"),
+      actionButton("genere_rapport", label = "rapport ReporteRs"),
+      actionButton("genere_rapport_rmd_html", label = "rapport html (via Rmd)"),
+      actionButton("genere_rapport_rmd_pdf", label = "rapport pdf (via Rmd)"),
+      actionButton("genere_rapport_rmd_docx", label = "rapport word (via Rmd))"),
+      actionButton("temp","Ouvrir dossier temporaire"),
       downloadButton("telecharger_rapport", "docx")
        )
   ))
@@ -106,7 +107,9 @@ require(rCharts)
 
     output$liste_graph <- renderUI({
       checkboxGroupInput("choix_plot", "choose plot to save" ,
-                         choices = get_plot_to_save())
+                         choices =
+                           setNames(unlist(get_plot_to_save()),NULL)
+                         )
     })
 
 
@@ -118,6 +121,19 @@ require(rCharts)
       laliste <- laliste[laliste %in% input$choix_plot]
       withProgress(message = 'Chargement...', value = 0, {
         all_ggplot_to_rmd_pdf(laliste = laliste, open = FALSE) %>%
+          list2env(envir = .GlobalEnv)
+      })
+    })
+
+
+    observeEvent(input$genere_rapport_rmd_docx, {
+      message("on clic sur rapport")
+
+      laliste <- get_plot_to_save()
+      # on ne garde que les graph selectionnes
+      laliste <- laliste[laliste %in% input$choix_plot]
+      withProgress(message = 'Chargement...', value = 0, {
+        all_ggplot_to_rmd_docx(laliste = laliste, open = FALSE) %>%
           list2env(envir = .GlobalEnv)
       })
     })
