@@ -79,7 +79,7 @@ save_to_docx <- function(laliste_rapport,dossier,filename) {
   addParagraph("liste des graphiques",stylename = "Titre2")
 
   for (j in seq_along(laliste_rapport)) {
-    print(names(laliste_rapport)[j])
+    print(laliste_rapport[j])
     doc <- doc %>%
       addTitle( names(laliste_rapport)[j], level = 3) %>%
       addImage( filename = paste0(dossier, "/",
@@ -113,7 +113,6 @@ save_to_docx <- function(laliste_rapport,dossier,filename) {
 #' @export
 
 save_to_png <- function(laliste,dossier){
-
 
   for (j in seq_along(laliste)) {
     print(names(laliste)[j])

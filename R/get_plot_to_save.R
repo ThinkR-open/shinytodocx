@@ -6,10 +6,10 @@
 get_plot_to_save <- function() {
 
   list(
-    `le graphique A` = "graphA",
-    `graph B` = "graphB",
-    `ici c 'est le C` = "graphC",
-    `j aime le D` = "graphD"
+    "graphA"="le graphique A",
+     "graphB"="graph B" ,
+     "graphC" = "ici c 'est le C" ,
+     "graphD" ="j aime le D"
   )
 }
 

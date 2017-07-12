@@ -47,6 +47,18 @@ add_br <- function(chemin_rapport){
   add_to_rmd(text="\n",chemin_rapport = chemin_rapport)
   invisible(chemin_rapport)
 }
+
+
+
+#' Title
+#'
+#' @param chemin_rapport
+#' @param graph
+#'
+#' @return
+#' @export
+#'
+#' @examples
 add_graph <- function(chemin_rapport,graph){
 
   # inherits(e,graph)
@@ -63,6 +75,22 @@ add_graph <- function(chemin_rapport,graph){
 
 
 
+  invisible(chemin_rapport)
+}
+
+#' Title
+#'
+#' @param chemin_rapport
+#' @param graph
+#'
+#' @return
+#' @export
+#'
+#' @examples
+add_image <- function(chemin_rapport,graph){
+  fichier <- paste0(graph,".png")# avec un make.names
+    chemin_rapport %>%
+    add_to_rmd(text=paste0("![](",fichier,")"))
   invisible(chemin_rapport)
 }
 
