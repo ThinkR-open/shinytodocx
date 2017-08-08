@@ -15,7 +15,7 @@ save_to_rmd_html <- function(laliste_rapport,dossier,filename,output_format="htm
   assertthat::assert_that(is.dir(dossier))
   assertthat::assert_that(is.writeable(dossier))
 
-  tempReport <- system.file("template","template_html.rmd",package = "shinytodocx")
+  tempReport <- system.file("template","template_html.Rmd",package = "shinytodocx")
   chemin_rapport <- file.path(dossier,"rapport.Rmd")
   file.copy( tempReport,chemin_rapport, overwrite = TRUE)
 
@@ -52,7 +52,7 @@ save_to_rmd_pdf <- function(laliste_rapport,dossier,filename,output_format="pdf_
   assertthat::assert_that(is.dir(dossier))
   assertthat::assert_that(is.writeable(dossier))
 
-  tempReport <- system.file("template","template_pdf.rmd",package = "shinytodocx")
+  tempReport <- system.file("template","template_pdf.Rmd",package = "shinytodocx")
   chemin_rapport <- file.path(dossier,"rapport.Rmd")
   file.copy( tempReport,chemin_rapport, overwrite = TRUE)
   for (j in seq_along(laliste_rapport)) {
@@ -87,7 +87,7 @@ save_to_rmd_word <- function(laliste_rapport,dossier,filename,output_format="wor
   assertthat::assert_that(is.dir(dossier))
   assertthat::assert_that(is.writeable(dossier))
 
-  tempReport <- system.file("template","template_word.rmd",package = "shinytodocx")
+  tempReport <- system.file("template","template_word.Rmd",package = "shinytodocx")
   chemin_rapport <- file.path(dossier,"rapport.Rmd")
   file.copy( tempReport,chemin_rapport, overwrite = TRUE)
   for (j in seq_along(laliste_rapport)) {

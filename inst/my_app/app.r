@@ -78,8 +78,8 @@ require(rCharts)
       actionButton("genere_rapport_rmd_docx", label = "rapport word (via Rmd))"),
       actionButton("temp","Ouvrir dossier temporaire"),
       downloadButton("telecharger_rapport_docx", "docx"),
-      downloadButton("telecharger_rapport_html", "pdf"),
-      downloadButton("telecharger_rapport_pdf", "html")
+      downloadButton("telecharger_rapport_html", "html"),
+      downloadButton("telecharger_rapport_pdf", "pdf")
        )
   ))
 
