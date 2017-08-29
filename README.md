@@ -10,7 +10,7 @@ POC permettant de montrer comment construire un rapport .docx à partir d 'une a
 
 # from Github
 if (!require(devtools)){install.packages("devtools")}
-devtools::install_github("ThinkRstat/shinytodocx")
+devtools::install_github("ThinkR-open/shinytodocx")
 ```
 
 
